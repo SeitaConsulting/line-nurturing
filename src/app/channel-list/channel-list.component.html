@@ -1,0 +1,21 @@
+<nav class="navbar bg-light" aria-label="breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb my-2">
+      <li class="breadcrumb-item active" aria-current="page">チャネル一覧</li>
+    </ol>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <h1>チャネル一覧</h1>
+    
+    <div class="card">
+      <ul class="list-group list-group-flush">
+	<li class="list-group-item list-group-item-action" *ngFor="let channel of channels" [routerLink]="['', 'channel', channel.channel_id,'scenarios']">@{{channel.id}}</li>
+	<li class="list-group-item list-group-item-action" [routerLink]="['','channels','create']"><i class="fas fa-plus"></i> チャネルを接続</li>
+      </ul>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,22 @@
+<nav class="navbar bg-light" aria-label="breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb my-2">
+      <li class="breadcrumb-item"><a routerLink="{{'../../../../../channels'}}">チャネル一覧</a></li>
+      <li class="breadcrumb-item"><a routerLink="{{'../../../scenarios'}}">シナリオ一覧</a></li>
+      <li class="breadcrumb-item active" aria-current="page">メッセージ一覧</li>
+    </ol>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <h1>メッセージ一覧</h1>
+    
+    <div class="card">
+      <ul class="list-group list-group-flush">
+	<li class="list-group-item list-group-item-action" routerLink="{{'../message/'+message.message_id+'/edit'}}" *ngFor="let message of messages">{{message.name}}</li>
+	<li class="list-group-item list-group-item-action" routerLink="{{'create'}}"><i class="fas fa-plus"></i> メッセージを追加</li>
+      </ul>
+    </div>
+  </div>
+</section>

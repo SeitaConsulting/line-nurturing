@@ -1,0 +1,27 @@
+<nav class="navbar bg-light" aria-label="breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb my-2">
+      <li class="breadcrumb-item"><a routerLink="{{'../../../channels'}}">チャネル一覧</a></li>
+      <li class="breadcrumb-item active" aria-current="page">シナリオ一覧</li>
+    </ol>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <h1>シナリオ一覧</h1>
+
+    <div class="card border-0">
+      <div class="d-flex justify-content-end">
+	<a routerLink="{{'settings'}}"><i class="fas fa-cog"></i></a>
+      </div>
+    </div>
+
+    <div class="card">
+      <ul class="list-group list-group-flush">
+	<li class="list-group-item list-group-item-action" routerLink="{{'../scenario/'+scenario.scenario_id+'/messages'}}" *ngFor="let scenario of scenarios">{{scenario.name}}</li>
+	<li class="list-group-item list-group-item-action" routerLink="{{'create'}}" [ngClass]="{'disabled ':(scenarios.length>=1)?true:false}"><i class="fas fa-plus"></i> シナリオを追加</li>
+      </ul>
+    </div>
+  </div>
+</section>

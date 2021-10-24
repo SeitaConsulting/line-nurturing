@@ -20,6 +20,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "uuid"
+            ],
             "outputPath": "dist/line-nurturing",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -123,9 +126,16 @@
               "devServerTarget": "line-nurturing:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
   },
-  "defaultProject": "line-nurturing"
+  "defaultProject": "line-nurturing",
+  "cli": {
+    "analytics": false
+  }
 }

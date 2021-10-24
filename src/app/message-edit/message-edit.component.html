@@ -1,0 +1,41 @@
+<nav class="navbar bg-light" aria-label="breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb my-2">
+      <li class="breadcrumb-item"><a routerLink="{{'../../../../../../../channels'}}">チャネル一覧</a></li>
+      <li class="breadcrumb-item"><a routerLink="{{'../../../../../scenarios'}}">シナリオ一覧</a></li>
+      <li class="breadcrumb-item"><a routerLink="{{'../../../messages'}}">メッセージ一覧</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{message?.name}}</li>
+    </ol>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <h1>{{message?.name}}</h1>
+
+    <div class="card">
+      <div class="card-body">
+
+	<form [formGroup]="messageEditForm">
+	  <div class="mb-3 row">
+	    <label for="message-edit-text" class="col-sm-2 col-form-label">本文</label>
+	    <div class="col-sm-10">
+	      <textarea type="text" class="form-control" formControlName="text" id="message-edit-text" required></textarea>
+	    </div>
+	  </div>
+
+	  <div class="d-flex justify-content-end">
+	    <button class="btn btn-primary" type="button" (click)="submitMessageEditForm()" [disabled]="messageEditForm.invalid">保存</button>
+	  </div>
+	</form>	
+	
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-dark text-white">
+  <div class="container" *ngIf="messageEditForm.value.text">
+    <p class="bg-secondary rounded-3 px-3 py-1" style="max-width:272px;white-space:pre-wrap">{{messageEditForm.value.text}}</p>
+  </div>
+</section>

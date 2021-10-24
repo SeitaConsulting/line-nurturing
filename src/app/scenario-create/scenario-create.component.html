@@ -1,0 +1,22 @@
+<section>
+  <div class="container">
+    <h1>シナリオの追加</h1>
+
+    <div class="card">
+      <div class="card-body">
+	<form [formGroup]="scenarioCreateForm">
+	  <div class="mb-3 row">
+	    <label for="scenario-create-lineofficial-id" class="col-sm-2 col-form-label">シナリオ名</label>
+	    <div class="col-sm-10">
+	      <input type="text" class="form-control" formControlName="name" id="scenario-create-name" required />
+	    </div>
+	  </div>
+
+	  <div class="d-flex justify-content-end">
+	    <button class="btn btn-primary" type="button" routerLink="{{'../'}}" (click)="submitScenarioCreateForm()" [disabled]="scenarioCreateForm.invalid">シナリオを追加</button>
+	  </div>
+	</form>	
+      </div>
+    </div>
+  </div>
+</section>
